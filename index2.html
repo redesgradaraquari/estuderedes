@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia em Redes de Computadores | IFC Araquari</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f17',       // Slate profundo super limpo
+                        cardBg: '#131924',       // Card em tom cinza azulado
+                        darkCard: '#1a2233',     // Superfície interna com sutil contraste
+                        techBlue: '#3b82f6',     // Azul tecnológico limpo e moderno
+                        techCyan: '#06b6d4',     // Ciano suave
+                        accentEmerald: '#10b981',// Verde esmeralda para CTAs e destaques
+                        surfaceBorder: '#1e293b' // Borda refinada em slate-800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-tech {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+        .glow-emerald {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        .text-glow-blue {
+            text-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Configuração do fundo atualizado para fundo.jpg com sobreposição limpa */
+        body.bg-custom-image {
+            background-image: url('img/fundo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .bg-overlay {
+            background-color: rgba(11, 15, 23, 0.92);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-techBlue selection:text-white bg-custom-image">
+
+    <div class="bg-overlay min-h-screen">
+
+        <!-- Banner Topo -->
+        <div class="bg-gradient-to-r from-techBlue via-techCyan to-accentEmerald text-slate-950 font-tech font-semibold text-xs md:text-sm py-2 px-4 text-center tracking-wide uppercase relative z-50">
+            <i class="fa-solid fa-graduation-cap mr-2"></i> 100% Gratuito • Sem mensalidade ou taxa de matrícula • Vagas via ENEM/SISU e Vestibular
+        </div>
+
+        <!-- Header / Navbar -->
+        <header class="sticky top-0 z-40 backdrop-blur-lg bg-darkBg/80 border-b border-surfaceBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-cardBg border border-techBlue/40 flex items-center justify-center p-1.5 glow-tech">
+                        <img src="img/logo_ifc.png" alt="Logo IFC Araquari" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div>
+                        <span class="font-tech font-bold tracking-wider text-white block text-sm sm:text-base">REDES DE COMPUTADORES</span>
+                        <span class="text-xs text-slate-400">IFC - Campus Araquari</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#diferenciais" class="text-slate-300 hover:text-techCyan transition">Diferenciais</a>
+                    <a href="#curso" class="text-slate-300 hover:text-techCyan transition">O Curso</a>
+                    <a href="#parcerias" class="text-slate-300 hover:text-techCyan transition">Parcerias</a>
+                    <a href="#ingresso" class="text-slate-300 hover:text-techCyan transition">Processo Seletivo</a>
+                </nav>
+                <div>
+                    <a href="#ingresso" class="bg-techBlue/10 hover:bg-techBlue hover:text-white border border-techBlue/50 text-techBlue font-tech text-xs sm:text-sm px-4 py-2.5 rounded-lg transition duration-300 font-semibold">
+                        QUERO ESTUDAR AQUI
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden py-20 lg:py-32 border-b border-surfaceBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-techCyan/30 bg-cardBg text-techCyan text-xs font-tech tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-techCyan animate-pulse"></span>
+                            <span>ENSINO PÚBLICO, FEDERAL E DE EXCELÊNCIA</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-6xl font-tech font-black tracking-tight leading-none text-white">
+                            CONSTRUA O <span class="text-techBlue text-glow-blue">FUTURO</span> DA INFRAESTRUTURA DIGITAL
+                        </h1>
+                        <p class="text-slate-300 text-lg sm:text-xl font-light leading-relaxed">
+                            Formação superior tecnológica completa em Redes de Computadores. Domine arquitetura de redes, roteamento avançado, segurança da informação e cloud computing.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#ingresso" class="bg-accentEmerald hover:bg-emerald-600 text-slate-950 font-tech font-bold px-8 py-4 rounded-xl text-center transition glow-emerald flex items-center justify-center space-x-2">
+                                <span>GARANTA SUA VAGA</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="#diferenciais" class="bg-cardBg hover:bg-darkCard border border-surfaceBorder text-white font-tech font-bold px-8 py-4 rounded-xl text-center transition flex items-center justify-center space-x-2">
+                                <span>VER DIFERENCIAIS</span>
+                            </a>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 pt-8 border-t border-surfaceBorder text-center sm:text-left">
+                            <div>
+                                <span class="block font-tech font-bold text-2xl text-techBlue">100%</span>
+                                <span class="text-xs text-slate-400">Gratuito (Sem mensalidade)</span>
+                            </div>
+                            <div>
+                                <span class="block font-tech font-bold text-2xl text-accentEmerald">3 Anos</span>
+                                <span class="text-xs text-slate-400">6 Semestres (Noturno)</span>
+                            </div>
+                            <div>
+                                <span class="block font-tech font-bold text-2xl text-white">CREA/SC</span>
+                                <span class="text-xs text-slate-400">Reconhecimento Profissional</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Certificações -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-cardBg border border-surfaceBorder rounded-2xl p-6 sm:p-8 glow-tech relative">
+                            <div class="absolute -top-3 right-6 bg-techBlue text-white font-tech text-xs font-bold px-3 py-1 rounded-md shadow-md">
+                                DESTAQUE
+                            </div>
+                            <h2 class="font-tech font-bold text-xl text-white mb-6 flex items-center">
+                                <i class="fa-solid fa-certificate text-techBlue mr-3"></i> Certificações Globais
+                            </h2>
+                            <p class="text-slate-300 text-sm mb-6">
+                                Parcerias oficiais integradas diretamente na grade curricular para impulsionar sua empregabilidade internacional:
+                            </p>
+                            <div class="space-y-4">
+                                <div class="bg-darkCard border border-surfaceBorder p-4 rounded-xl flex items-center space-x-4">
+                                    <div class="w-14 h-12 rounded bg-white p-1.5 flex items-center justify-center shrink-0">
+                                        <img src="img/logo_cisco.png" alt="Logo Cisco" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sm text-white">Cisco Networking Academy</h3>
+                                        <p class="text-xs text-slate-400">Cursos oficiais CCNA gratuitos</p>
+                                    </div>
+                                </div>
+                                <div class="bg-darkCard border border-surfaceBorder p-4 rounded-xl flex items-center space-x-4">
+                                    <div class="w-14 h-12 rounded bg-white p-1.5 flex items-center justify-center shrink-0">
+                                        <img src="img/logo_aws.png" alt="Logo AWS" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sm text-white">AWS Academy</h3>
+                                        <p class="text-xs text-slate-400">Cloud Computing & Infraestrutura</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais Section -->
+        <section id="diferenciais" class="py-24 border-b border-surfaceBorder relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-tech font-bold tracking-widest text-accentEmerald mb-3 uppercase">Vantagens Competitivas</h2>
+                    <h3 class="text-3xl sm:text-4xl font-tech font-black text-white">POR QUE ESCOLHER O NOSSO CURSO?</h3>
+                    <p class="text-slate-400 mt-4">Diferenciais pensados para conectar você diretamente às demandas mais exigentes do mercado tecnológico global.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-cardBg border border-surfaceBorder rounded-2xl p-8 hover:border-techBlue/50 transition duration-300 group">
+                        <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center mb-6">
+                            <img src="img/logo_cisco.png" alt="Cisco e AWS" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <h4 class="font-tech font-bold text-xl text-white mb-4">Parcerias Globais: Cisco & AWS Academy</h4>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            Por meio dessa colaboração estratégica, oferecemos aos nossos alunos a oportunidade de participar de cursos gratuitos que possibilitam a obtenção de certificações reconhecidas internacionalmente pelo mercado de tecnologia.
+                        </p>
+                    </div>
+
+                    <div class="bg-cardBg border border-surfaceBorder rounded-2xl p-8 hover:border-accentEmerald/50 transition duration-300 group">
+                        <div class="w-28 h-14 rounded-xl bg-white p-2 flex items-center justify-center mb-6">
+                            <img src="img/logo_crea.png" alt="Logo CREA-SC" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <h4 class="font-tech font-bold text-xl text-white mb-4">Registro Profissional no CREA/SC</h4>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            O curso é registrado no CREA/SC. O registro no Sistema CONFEA/CREA assegura que o tecnólogo obtenha o reconhecimento legal de suas atribuições profissionais baseadas na Resolução específica do CONFEA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parcerias Logos -->
+        <section id="parcerias" class="py-16 bg-cardBg/40 border-b border-surfaceBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-xs font-tech tracking-widest text-slate-400 uppercase mb-8">Instituição de Apoio e Parcerias Tecnológicas</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                    <div class="bg-darkBg border border-surfaceBorder px-6 py-3 rounded-xl flex items-center justify-center h-16 w-40">
+                        <img src="img/logo_ifc.png" alt="IFC" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg border border-surfaceBorder px-6 py-3 rounded-xl flex items-center justify-center h-16 w-40">
+                        <img src="img/logo_cisco.png" alt="Cisco" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg border border-surfaceBorder px-6 py-3 rounded-xl flex items-center justify-center h-16 w-40">
+                        <img src="img/logo_aws.png" alt="AWS" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg border border-surfaceBorder px-6 py-3 rounded-xl flex items-center justify-center h-16 w-40">
+                        <img src="img/logo_crea.png" alt="CREA-SC" class="max-h-full max-w-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingresso & QR Code Section -->
+        <section id="ingresso" class="py-24 relative overflow-hidden bg-gradient-to-b from-darkBg to-cardBg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-cardBg border border-techBlue/30 rounded-3xl p-8 lg:p-12 glow-tech grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accentEmerald/10 border border-accentEmerald/30 text-accentEmerald text-xs font-tech">
+                            <span>AVISOS SOBRE INSCRIÇÕES ABERTAS</span>
+                        </div>
+                        <h3 class="text-3xl sm:text-4xl font-tech font-black text-white">QUER RECEBER INFORMAÇÕES SOBRE OS PROCESSOS SELETIVOS?</h3>
+                        <p class="text-slate-300">
+                            Não perca os prazos de editais, datas de provas e orientações para ingresso. Cadastre-se em nossa lista de avisos ou aponte a câmera do seu celular para o QR Code ao lado.
+                        </p>
+                        <div class="pt-2">
+                            <a href="https://abre.ai/estuderedes" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-3 bg-techBlue hover:bg-blue-600 text-white font-tech font-bold px-8 py-4 rounded-xl transition shadow-lg">
+                                <span>DESEJO RECEBER INFORMAÇÕES SOBRE INSCRIÇÃO</span>
+                                <i class="fa-solid fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center bg-darkCard border border-surfaceBorder p-8 rounded-2xl text-center">
+                        <div id="qrcode" class="bg-white p-3 rounded-xl mb-4 shadow-md inline-block"></div>
+                        <span class="font-tech text-xs text-slate-300 block font-semibold">Escaneie o QR Code ou acesse:</span>
+                        <a href="https://abre.ai/estuderedes" target="_blank" rel="noopener noreferrer" class="text-techCyan text-xs underline mt-1 font-mono break-all hover:text-white transition">https://abre.ai/estuderedes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informações do Curso Section -->
+        <section id="curso" class="py-24 border-b border-surfaceBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-tech font-bold tracking-widest text-techBlue mb-3 uppercase">Estrutura Acadêmica</h2>
+                    <h3 class="text-3xl sm:text-4xl font-tech font-black text-white">INFORMAÇÕES GERAIS DO CURSO</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-cardBg border border-surfaceBorder p-6 rounded-xl hover:border-techBlue/30 transition">
+                        <div class="text-techBlue text-xl mb-3"><i class="fa-solid fa-book-open"></i></div>
+                        <h4 class="text-xs font-tech text-slate-400 uppercase">Denominação do Curso</h4>
+                        <p class="font-bold text-white text-base mt-1">Curso Superior de Tecnologia em Redes de Computadores</p>
+                    </div>
+                    <div class="bg-cardBg border border-surfaceBorder p-6 rounded-xl hover:border-techBlue/30 transition">
+                        <div class="text-techBlue text-xl mb-3"><i class="fa-solid fa-award"></i></div>
+                        <h4 class="text-xs font-tech text-slate-400 uppercase">Titulação</h4>
+                        <p class="font-bold text-white text-base mt-1">Tecnólogo em Redes de Computadores</p>
+                    </div>
+                    <div class="bg-cardBg border border-surfaceBorder p-6 rounded-xl hover:border-techBlue/30 transition">
+                        <div class="text-techBlue text-xl mb-3"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h4 class="text-xs font-tech text-slate-400 uppercase">Modalidade & Turno</h4>
+                        <p class="font-bold text-white text-base mt-1">Ensino Presencial • Noturno</p>
+                    </div>
+                    <div class="bg-cardBg border border-surfaceBorder p-6 rounded-xl hover:border-techBlue/30 transition">
+                        <div class="text-techBlue text-xl mb-3"><i class="fa-solid fa-clock"></i></div>
+                        <h4 class="text-xs font-tech text-slate-400 uppercase">Duração</h4>
+                        <p class="font-bold text-white text-base mt-1">6 Semestres (3 Anos)</p>
+                    </div>
+                    <div class="bg-cardBg border border-surfaceBorder p-6 rounded-xl hover:border-techBlue/30 transition">
+                        <div class="text-techBlue text-xl mb-3"><i class="fa-solid fa-door-open"></i></div>
+                        <h4 class="text-xs font-tech text-slate-400 uppercase">Forma de Ingresso</h4>
+                        <p class="font-bold text-white text-base mt-1">ENEM / SISU e Vestibular unificado IFC/IFSC/UFSC</p>
+                    </div>
+                    <div class="bg-cardBg border border-surfaceBorder p-6 rounded-xl hover:border-accentEmerald/30 transition">
+                        <div class="text-accentEmerald text-xl mb-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <h4 class="text-xs font-tech text-slate-400 uppercase">Investimento</h4>
+                        <p class="font-bold text-accentEmerald text-base mt-1">100% Gratuito (Instituição Pública Federal)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="bg-darkBg border-t border-surfaceBorder py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded bg-cardBg border border-techBlue/40 flex items-center justify-center p-1">
+                            <img src="img/logo_ifc.png" alt="IFC" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <span class="font-tech font-bold text-white tracking-wider">REDES ARAQUARI</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Instituto Federal Catarinense - Campus Araquari. Rodovia BR 280, Km 27, nº 5200. Bairro Colégio Agrícola. CEP 89245-000. Araquari (SC).
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-tech font-bold text-white text-sm mb-4 uppercase tracking-wider">Fale com a Coordenação</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-techBlue"></i>
+                            <a href="mailto:redes.grad.araquari@ifc.edu.br" class="hover:text-techBlue transition">redes.grad.araquari@ifc.edu.br</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-tech font-bold text-white text-sm mb-4 uppercase tracking-wider">Links Úteis</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li>
+                            <a href="https://redes.araquari.ifc.edu.br" target="_blank" rel="noopener noreferrer" class="hover:text-techBlue transition flex items-center space-x-2">
+                                <i class="fa-solid fa-globe text-xs text-techBlue"></i>
+                                <span>Site Oficial do Curso</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ingresso.ifc.edu.br/seletivos/processo-seletivo-2027/graduacao/" target="_blank" rel="noopener noreferrer" class="hover:text-techBlue transition flex items-center space-x-2">
+                                <i class="fa-solid fa-bullhorn text-xs text-techBlue"></i>
+                                <span>Processos Seletivos</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-12 border-t border-surfaceBorder text-center text-xs text-slate-500 font-tech">
+                &copy; 2026 Instituto Federal Catarinense (IFC) - Campus Araquari. Todos os direitos reservados.
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script de inicialização do QR Code -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var qrContainer = document.getElementById("qrcode");
+            if (qrContainer && typeof QRCode !== 'undefined') {
+                new QRCode(qrContainer, {
+                    text: "https://abre.ai/estuderedes",
+                    width: 140,
+                    height: 140,
+                    colorDark: "#0b0f17",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        });
+    </script>
+</body>
+</html>

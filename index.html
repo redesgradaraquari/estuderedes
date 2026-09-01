@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia em Redes de Computadores | IFC Araquari</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0f18',       // Slate super escuro
+                        cardBg: '#121926',       // Card com transparência e tom escuro
+                        subCardBg: '#1a2333',    // Tom de realce escuro
+                        techBlue: '#3b82f6',     // Azul tecnológico vibrante
+                        techBlueDark: '#2563eb', // Azul cobalto
+                        techCyan: '#06b6d4',     // Ciano
+                        accentEmerald: '#10b981',// Verde esmeralda para destaque
+                        surfaceBorder: '#1e293b' // Borda sutil
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-tech {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+        }
+        .glow-emerald {
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+        }
+        .text-glow-blue {
+            text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Fundo customizado com fundo.jpg e transparência ajustada */
+        body.bg-custom-image {
+            background-image: url('img/fundo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        /* Transparência reduzida (80%) para ver melhor a imagem ao fundo */
+        .bg-overlay {
+            background-color: rgba(10, 15, 24, 0.80);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-techBlue selection:text-white bg-custom-image">
+
+    <div class="bg-overlay min-h-screen flex flex-col justify-between">
+
+        <!-- Banner Topo -->
+        <div class="bg-gradient-to-r from-techBlue via-techCyan to-accentEmerald text-slate-950 font-tech font-bold text-[10px] sm:text-xs md:text-sm py-1.5 px-3 text-center tracking-wide uppercase relative z-50">
+            <i class="fa-solid fa-graduation-cap mr-1 sm:mr-2"></i> 100% Gratuito • Sem mensalidade • Vagas via ENEM/SISU e Vestibular
+        </div>
+
+        <!-- Header / Navbar -->
+        <header class="sticky top-0 z-40 backdrop-blur-lg bg-darkBg/80 border-b border-surfaceBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-cardBg/90 border border-techBlue/50 flex items-center justify-center p-1 shadow-sm shrink-0 glow-tech">
+                        <img src="img/logo_ifc.png" alt="Logo IFC Araquari" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div>
+                        <span class="font-tech font-bold tracking-wider text-white block text-xs sm:text-sm leading-tight">REDES DE COMPUTADORES</span>
+                        <span class="text-[9px] sm:text-[11px] text-slate-400 block">IFC - Campus Araquari</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
+                    <a href="#diferenciais" class="text-slate-300 hover:text-techCyan transition">Diferenciais</a>
+                    <a href="#curso" class="text-slate-300 hover:text-techCyan transition">O Curso</a>
+                    <a href="#parcerias" class="text-slate-300 hover:text-techCyan transition">Parcerias</a>
+                    <a href="#ingresso" class="text-slate-300 hover:text-techCyan transition">Processo Seletivo</a>
+                    <a href="#faq" class="text-slate-300 hover:text-techCyan transition">Dúvidas</a>
+                </nav>
+
+                <div class="hidden sm:flex items-center">
+                    <a href="#ingresso" class="bg-techBlue/20 hover:bg-techBlue hover:text-white border border-techBlue/60 text-techCyan font-tech text-xs px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg transition duration-300 font-semibold text-center">
+                        QUERO ESTUDAR REDES
+                    </a>
+                </div>
+
+                <!-- Botão Mobile Hamburger -->
+                <button id="mobile-menu-btn" type="button" aria-label="Abrir Menu" class="lg:hidden p-2 rounded-lg text-slate-200 hover:bg-surfaceBorder/50 focus:outline-none">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Drawer Mobile Nav -->
+            <div id="mobile-menu" class="hidden lg:hidden bg-darkBg/95 backdrop-blur-xl border-b border-surfaceBorder px-4 pt-2 pb-4 space-y-2">
+                <a href="#diferenciais" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Diferenciais</a>
+                <a href="#curso" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">O Curso</a>
+                <a href="#parcerias" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Parcerias</a>
+                <a href="#ingresso" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Processo Seletivo</a>
+                <a href="#faq" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Dúvidas</a>
+                <a href="#ingresso" class="mobile-link block w-full bg-techBlue text-white font-tech text-xs text-center py-2.5 rounded-lg font-semibold mt-2">QUERO ESTUDAR AQUI</a>
+            </div>
+        </header>
+
+        <!-- Hero Section (Espaçamento superior reduzido) -->
+        <section class="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20 border-b border-surfaceBorder/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-techCyan/30 bg-cardBg/80 text-techCyan text-[11px] sm:text-xs font-tech tracking-wide backdrop-blur-sm">
+                            <span class="w-2 h-2 rounded-full bg-techCyan animate-pulse shrink-0"></span>
+                            <span>ENSINO PÚBLICO, FEDERAL E DE EXCELÊNCIA</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-tech font-black tracking-tight leading-tight sm:leading-none text-white">
+                            CONSTRUA O <span class="text-techBlue text-glow-blue">FUTURO</span> DA INFRAESTRUTURA DIGITAL
+                        </h1>
+                        <p class="text-slate-300 text-base sm:text-lg lg:text-xl font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            Formação superior tecnológica completa em Redes de Computadores. Domine arquitetura de redes, roteamento avançado, segurança da informação e cloud computing.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-1 justify-center lg:justify-start">
+                            <a href="#ingresso" class="bg-accentEmerald hover:bg-emerald-600 text-slate-950 font-tech font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-center transition glow-emerald flex items-center justify-center space-x-2 text-sm sm:text-base">
+                                <span>GARANTA SUA VAGA</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="#diferenciais" class="bg-cardBg/80 hover:bg-subCardBg border border-surfaceBorder text-white font-tech font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-center transition flex items-center justify-center space-x-2 text-sm sm:text-base backdrop-blur-sm">
+                                <span>VER DIFERENCIAIS</span>
+                            </a>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-5 border-t border-surfaceBorder/80 text-center">
+                            <div>
+                                <span class="block font-tech font-bold text-xl sm:text-2xl text-techBlue">100%</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400">Gratuito</span>
+                            </div>
+                            <div>
+                                <span class="block font-tech font-bold text-xl sm:text-2xl text-accentEmerald">3 Anos</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400">6 Semestres</span>
+                            </div>
+                            <div>
+                                <span class="block font-tech font-bold text-xl sm:text-2xl text-white">CREA/SC</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400">Reconhecido</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Certificações -->
+                    <div class="lg:col-span-5 mt-4 lg:mt-0">
+                        <div class="bg-cardBg/85 backdrop-blur-md border border-surfaceBorder rounded-2xl p-5 sm:p-7 glow-tech relative shadow-xl">
+                            <div class="absolute -top-3 right-4 sm:right-6 bg-techBlue text-white font-tech text-[10px] sm:text-xs font-bold px-3 py-0.5 rounded-md shadow">
+                                DESTAQUE
+                            </div>
+                            <h2 class="font-tech font-bold text-lg sm:text-xl text-white mb-3 sm:mb-5 flex items-center">
+                                <i class="fa-solid fa-certificate text-techBlue mr-2 sm:mr-3"></i> Certificações Globais
+                            </h2>
+                            <p class="text-slate-300 text-xs sm:text-sm mb-4 sm:mb-5">
+                                Parcerias oficiais integradas diretamente na grade curricular para impulsionar sua empregabilidade internacional:
+                            </p>
+                            <div class="space-y-3 sm:space-y-3.5">
+                                <div class="bg-subCardBg/90 border border-surfaceBorder p-3 sm:p-3.5 rounded-xl flex items-center space-x-3 sm:space-x-4">
+                                    <div class="w-12 h-10 sm:w-14 sm:h-12 rounded bg-white p-1 flex items-center justify-center shrink-0">
+                                        <img src="img/logo_cisco.png" alt="Logo Cisco" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-xs sm:text-sm text-white">Cisco Networking Academy</h3>
+                                        <p class="text-[11px] sm:text-xs text-slate-400">Cursos oficiais CCNA gratuitos</p>
+                                    </div>
+                                </div>
+                                <div class="bg-subCardBg/90 border border-surfaceBorder p-3 sm:p-3.5 rounded-xl flex items-center space-x-3 sm:space-x-4">
+                                    <div class="w-12 h-10 sm:w-14 sm:h-12 rounded bg-white p-1 flex items-center justify-center shrink-0">
+                                        <img src="img/logo_aws.png" alt="Logo AWS" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-xs sm:text-sm text-white">AWS Academy</h3>
+                                        <p class="text-[11px] sm:text-xs text-slate-400">Cloud Computing & Infraestrutura</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais Section -->
+        <section id="diferenciais" class="py-14 sm:py-20 border-b border-surfaceBorder/80 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+                    <h2 class="text-[10px] sm:text-xs font-tech font-bold tracking-widest text-accentEmerald mb-2 sm:mb-3 uppercase">Diferenciais do Curso</h2>
+                    <h3 class="text-2xl sm:text-4xl font-tech font-black text-white">POR QUE ESCOLHER O NOSSO CURSO?</h3>
+                    <p class="text-slate-400 text-xs sm:text-base mt-2 sm:mt-4">Diferenciais pensados para conectar você diretamente às demandas do mercado global.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-2xl p-6 sm:p-8 hover:border-techBlue/60 transition duration-300">
+                        <div class="w-20 h-12 sm:w-24 sm:h-14 rounded-xl bg-white p-2 flex items-center justify-center mb-4 sm:mb-6">
+                            <img src="img/logo_cisco.png" alt="Cisco e AWS" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <h4 class="font-tech font-bold text-lg sm:text-xl text-white mb-3">Parcerias Globais: Cisco & AWS Academy</h4>
+                        <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
+                            Cursos gratuitos e integrados para obtenção de certificações reconhecidas internacionalmente pelo mercado de tecnologia.
+                        </p>
+                    </div>
+                <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-2xl p-6 sm:p-8 hover:border-accentEmerald/60 transition duration-300">
+                        <div class="w-20 h-12 sm:w-28 sm:h-14 rounded-xl bg-white p-2 flex items-center justify-center mb-4 sm:mb-6">
+                            <img src="img/logo_crea.png" alt="Logo CREA-SC" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <h4 class="font-tech font-bold text-lg sm:text-xl text-white mb-3">Registro Profissional no CREA/SC</h4>
+                        <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
+                            O curso é registrado no CREA/SC, assegurando o reconhecimento legal de suas atribuições profissionais perante o CONFEA/CREA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parcerias Logos -->
+        <section id="parcerias" class="py-10 sm:py-14 bg-cardBg/40 backdrop-blur-sm border-b border-surfaceBorder/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-[10px] sm:text-xs font-tech tracking-widest text-slate-400 uppercase mb-6 sm:mb-8">Parcerias Tecnológicas</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 items-center justify-items-center">
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_ifc.png" alt="IFC" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_cisco.png" alt="Cisco" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_aws.png" alt="AWS" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_crea.png" alt="CREA-SC" class="max-h-full max-w-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informações do Curso Section -->
+        <section id="curso" class="py-14 sm:py-20 border-b border-surfaceBorder/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+                    <h2 class="text-[10px] sm:text-xs font-tech font-bold tracking-widest text-techCyan mb-2 sm:mb-3 uppercase">Estrutura Acadêmica</h2>
+                    <h3 class="text-2xl sm:text-4xl font-tech font-black text-white">INFORMAÇÕES GERAIS DO CURSO</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder p-5 sm:p-6 rounded-xl hover:border-techBlue/50 transition">
+                        <div class="text-techBlue text-lg sm:text-xl mb-2 sm:mb-3"><i class="fa-solid fa-book-open"></i></div>
+                        <h4 class="text-[10px] sm:text-xs font-tech text-slate-400 uppercase">Denominação</h4>
+                        <p class="font-bold text-white text-sm sm:text-base mt-1">Tecnologia em Redes de Computadores</p>
+                    </div>
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder p-5 sm:p-6 rounded-xl hover:border-techBlue/50 transition">
+                        <div class="text-techBlue text-lg sm:text-xl mb-2 sm:mb-3"><i class="fa-solid fa-award"></i></div>
+                        <h4 class="text-[10px] sm:text-xs font-tech text-slate-400 uppercase">Titulação</h4>
+                        <p class="font-bold text-white text-sm sm:text-base mt-1">Tecnólogo em Redes de Computadores</p>
+                    </div>
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder p-5 sm:p-6 rounded-xl hover:border-techBlue/50 transition">
+                        <div class="text-techBlue text-lg sm:text-xl mb-2 sm:mb-3"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h4 class="text-[10px] sm:text-xs font-tech text-slate-400 uppercase">Modalidade & Turno</h4>
+                        <p class="font-bold text-white text-sm sm:text-base mt-1">Ensino Presencial • Noturno</p>
+                    </div>
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder p-5 sm:p-6 rounded-xl hover:border-techBlue/50 transition">
+                        <div class="text-techBlue text-lg sm:text-xl mb-2 sm:mb-3"><i class="fa-solid fa-clock"></i></div>
+                        <h4 class="text-[10px] sm:text-xs font-tech text-slate-400 uppercase">Duração</h4>
+                        <p class="font-bold text-white text-sm sm:text-base mt-1">6 Semestres (3 Anos)</p>
+                    </div>
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder p-5 sm:p-6 rounded-xl hover:border-techBlue/50 transition">
+                        <div class="text-techBlue text-lg sm:text-xl mb-2 sm:mb-3"><i class="fa-solid fa-door-open"></i></div>
+                        <h4 class="text-[10px] sm:text-xs font-tech text-slate-400 uppercase">Ingresso</h4>
+                        <p class="font-bold text-white text-sm sm:text-base mt-1">ENEM / SISU e Vestibular Unificado</p>
+                    </div>
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder p-5 sm:p-6 rounded-xl hover:border-accentEmerald/50 transition">
+                        <div class="text-accentEmerald text-lg sm:text-xl mb-2 sm:mb-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <h4 class="text-[10px] sm:text-xs font-tech text-slate-400 uppercase">Investimento</h4>
+                        <p class="font-bold text-accentEmerald text-sm sm:text-base mt-1">100% Gratuito (Público Federal)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingresso & QR Code Section -->
+        <section id="ingresso" class="py-14 sm:py-20 relative overflow-hidden border-b border-surfaceBorder/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-cardBg/85 backdrop-blur-md border border-techBlue/40 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 glow-tech grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accentEmerald/10 border border-accentEmerald/30 text-accentEmerald text-[10px] sm:text-xs font-tech">
+                            <span>AVISOS SOBRE INSCRIÇÕES ABERTAS</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-tech font-black text-white">RECEBA INFORMAÇÕES SOBRE OS PROCESSOS SELETIVOS</h3>
+                        <div>
+                            <p class="text-slate-300 text-xs sm:text-base">
+                                Cadastre-se na lista para não perder editais e prazos ou aponte a câmera do seu celular para o QR Code ao lado.
+                            </p>
+                            <p class="text-[10px] sm:text-xs text-slate-400 font-light mt-1.5 leading-relaxed">
+                                *O cadastro nesta lista não garante uma vaga no curso, apenas o envio de informações e avisos sobre a abertura de novos processos seletivos.
+                            </p>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://abre.ai/estuderedes" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 bg-techBlue hover:bg-blue-600 text-white font-tech font-bold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition shadow-lg text-xs sm:text-sm w-full sm:w-auto">
+                                <span>QUERO RECEBER INFORMAÇÕES</span>
+                                <i class="fa-solid fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center bg-darkBg/90 border border-surfaceBorder p-6 rounded-2xl text-center">
+                        <div id="qrcode" class="p-2 sm:p-3 rounded-xl mb-3 shadow-md inline-block bg-white"></div>
+                        <span class="font-tech text-[11px] sm:text-xs text-slate-300 block font-semibold">Escaneie o QR Code ou acesse:</span>
+                        <a href="https://abre.ai/estuderedes" target="_blank" rel="noopener noreferrer" class="text-techCyan text-xs underline mt-1 font-mono break-all hover:text-white transition">https://abre.ai/estuderedes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção FAQ (Perguntas Frequentes) -->
+        <section id="faq" class="py-14 sm:py-20 border-b border-surfaceBorder/80">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 sm:mb-14">
+                    <h2 class="text-[10px] sm:text-xs font-tech font-bold tracking-widest text-techCyan mb-2 sm:mb-3 uppercase">Tire suas Dúvidas</h2>
+                    <h3 class="text-2xl sm:text-4xl font-tech font-black text-white">PERGUNTAS FREQUENTES</h3>
+                </div>
+
+                <div class="space-y-3 sm:space-y-4">
+                    <!-- Item 1 -->
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-xl sm:rounded-2xl overflow-hidden">
+                        <button class="faq-toggle w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex justify-between items-center focus:outline-none hover:bg-subCardBg/50 transition">
+                            <span class="font-tech font-bold text-white text-xs sm:text-base pr-2">O curso é realmente 100% gratuito?</span>
+                            <i class="fa-solid fa-chevron-down text-techBlue text-xs sm:text-base transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-6">
+                            <p class="text-slate-300 text-xs sm:text-sm py-3 sm:py-4 border-t border-surfaceBorder/60 leading-relaxed">
+                                Sim! O IFC é uma instituição de ensino pública e federal. Não há cobrança de mensalidades, taxa de matrícula ou custo para emissão de diploma.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-xl sm:rounded-2xl overflow-hidden">
+                        <button class="faq-toggle w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex justify-between items-center focus:outline-none hover:bg-subCardBg/50 transition">
+                            <span class="font-tech font-bold text-white text-xs sm:text-base pr-2">Quais são as formas de ingresso no curso?</span>
+                            <i class="fa-solid fa-chevron-down text-techBlue text-xs sm:text-base transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-6">
+                            <p class="text-slate-300 text-xs sm:text-sm py-3 sm:py-4 border-t border-surfaceBorder/60 leading-relaxed">
+                                Você pode ingressar através da nota do ENEM pelo SISU, pelo Vestibular Unificado (IFC/IFSC/UFSC), além de processos seletivos complementares e vagas de transferência.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-xl sm:rounded-2xl overflow-hidden">
+                        <button class="faq-toggle w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex justify-between items-center focus:outline-none hover:bg-subCardBg/50 transition">
+                            <span class="font-tech font-bold text-white text-xs sm:text-base pr-2">As certificações Cisco e AWS são gratuitas?</span>
+                            <i class="fa-solid fa-chevron-down text-techBlue text-xs sm:text-base transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-6">
+                            <p class="text-slate-300 text-xs sm:text-sm py-3 sm:py-4 border-t border-surfaceBorder/60 leading-relaxed">
+                                Todos os treinamentos oficiais das academias Cisco Networking e AWS Academy são oferecidos gratuitamente aos estudantes durante as disciplinas do curso.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-xl sm:rounded-2xl overflow-hidden">
+                        <button class="faq-toggle w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex justify-between items-center focus:outline-none hover:bg-subCardBg/50 transition">
+                            <span class="font-tech font-bold text-white text-xs sm:text-base pr-2">O que faz um Tecnólogo em Redes de Computadores?</span>
+                            <i class="fa-solid fa-chevron-down text-techBlue text-xs sm:text-base transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-6">
+                            <p class="text-slate-300 text-xs sm:text-sm py-3 sm:py-4 border-t border-surfaceBorder/60 leading-relaxed">
+                                O profissional projeta, implementa, gerencia e protege redes de dados. Atua em Cibersegurança, Arquitetura de Nuvem (Cloud Computing), Servidores Linux/Windows e Roteamento Avançado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-xl sm:rounded-2xl overflow-hidden">
+                        <button class="faq-toggle w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex justify-between items-center focus:outline-none hover:bg-subCardBg/50 transition">
+                            <span class="font-tech font-bold text-white text-xs sm:text-base pr-2">Preciso ter conhecimento prévio em programação ou redes?</span>
+                            <i class="fa-solid fa-chevron-down text-techBlue text-xs sm:text-base transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-6">
+                            <p class="text-slate-300 text-xs sm:text-sm py-3 sm:py-4 border-t border-surfaceBorder/60 leading-relaxed">
+                                Não é necessário. O curso inicia abordando os fundamentos teóricos e práticos das áreas de redes e sistemas operacionais, evoluindo gradualmente ao longo dos semestres.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="bg-darkBg/90 border-t border-surfaceBorder py-10 sm:py-14 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-3 sm:mb-4">
+                        <div class="w-7 h-7 rounded bg-cardBg border border-techBlue/40 flex items-center justify-center p-1">
+                            <img src="img/logo_ifc.png" alt="IFC" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <span class="font-tech font-bold text-white tracking-wider text-sm sm:text-base">REDES ARAQUARI</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Instituto Federal Catarinense - Campus Araquari.<br>BR 280, Km 27, nº 5200. Bairro Colégio Agrícola.<br>Araquari (SC) - CEP 89245-000.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-tech font-bold text-white text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">Fale com a Coordenação</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-envelope text-techBlue"></i>
+                            <a href="mailto:redes.grad.araquari@ifc.edu.br" class="hover:text-techCyan transition break-all">redes.grad.araquari@ifc.edu.br</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-tech font-bold text-white text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">Links Úteis</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li>
+                            <a href="https://redes.araquari.ifc.edu.br" target="_blank" rel="noopener noreferrer" class="hover:text-techCyan transition flex items-center space-x-2">
+                                <i class="fa-solid fa-globe text-xs text-techBlue"></i>
+                                <span>Site Oficial do Curso</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ingresso.ifc.edu.br/seletivos/processo-seletivo-2027/graduacao/" target="_blank" rel="noopener noreferrer" class="hover:text-techCyan transition flex items-center space-x-2">
+                                <i class="fa-solid fa-bullhorn text-xs text-techBlue"></i>
+                                <span>Processos Seletivos</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 mt-8 sm:mt-10 border-t border-surfaceBorder text-center text-[10px] sm:text-xs text-slate-500 font-tech">
+                &copy; 2026 Instituto Federal Catarinense (IFC) - Campus Araquari. Todos os direitos reservados.
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts da aplicação -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // QR Code
+            var qrContainer = document.getElementById("qrcode");
+            if (qrContainer && typeof QRCode !== 'undefined') {
+                new QRCode(qrContainer, {
+                    text: "https://abre.ai/estuderedes",
+                    width: 120,
+                    height: 120,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+
+            // Accordion FAQ
+            const faqToggles = document.querySelectorAll('.faq-toggle');
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('i');
+                    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                    if (!isOpen) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

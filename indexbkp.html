@@ -36,58 +36,27 @@
         }
     </script>
     <style>
-        :root {
-            color-scheme: dark;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            min-width: 320px;
-        }
-
-        /* =========================================================
-           EFEITOS GERAIS
-        ========================================================== */
         .glow-tech {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.20);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
         }
-
         .glow-emerald {
             box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
         }
-
         .text-glow-blue {
-            text-shadow: 0 0 12px rgba(59, 130, 246, 0.40);
+            text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
         }
-
-        .bg-custom-image {
+        
+        /* Fundo customizado com fundo.jpg e transparência ajustada */
+        body.bg-custom-image {
             background-image: url('img/fundo.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-
+        /* Transparência reduzida (80%) para ver melhor a imagem ao fundo */
         .bg-overlay {
             background-color: rgba(10, 15, 24, 0.80);
-        }
-
-        /* Acessibilidade */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
         }
     </style>
 </head>
@@ -105,7 +74,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
                 <div class="flex items-center space-x-2 sm:space-x-3">
                     <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-cardBg/90 border border-techBlue/50 flex items-center justify-center p-1 shadow-sm shrink-0 glow-tech">
-                        <img src="img/logo_redes.png" alt="Logo Redes IFC Araquari" width="40" height="40" fetchpriority="high" decoding="async">
+                        <img src="img/logo_redes.png" alt="Logo Redes IFC Araquari" class="max-h-full max-w-full object-contain">
                     </div>
                     <div>
                         <span class="font-tech font-bold tracking-wider text-white block text-xs sm:text-sm leading-tight">REDES DE COMPUTADORES</span>
@@ -117,6 +86,7 @@
                 <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
                     <a href="#diferenciais" class="text-slate-300 hover:text-techCyan transition">Diferenciais</a>
                     <a href="#curso" class="text-slate-300 hover:text-techCyan transition">O Curso</a>
+                    <a href="#parcerias" class="text-slate-300 hover:text-techCyan transition">Parcerias</a>
                     <a href="#ingresso" class="text-slate-300 hover:text-techCyan transition">Processo Seletivo</a>
                     <a href="#faq" class="text-slate-300 hover:text-techCyan transition">Dúvidas</a>
                 </nav>
@@ -137,13 +107,14 @@
             <div id="mobile-menu" class="hidden lg:hidden bg-darkBg/95 backdrop-blur-xl border-b border-surfaceBorder px-4 pt-2 pb-4 space-y-2">
                 <a href="#diferenciais" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Diferenciais</a>
                 <a href="#curso" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">O Curso</a>
+            <!-- <a href="#parcerias" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Parcerias</a> -->
                 <a href="#ingresso" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Processo Seletivo</a>
                 <a href="#faq" class="mobile-link block text-sm font-medium text-slate-300 hover:text-techCyan py-1.5">Dúvidas</a>
                 <a href="#ingresso" class="mobile-link block w-full bg-techBlue text-white font-tech text-xs text-center py-2.5 rounded-lg font-semibold mt-2">QUERO ESTUDAR AQUI</a>
             </div>
         </header>
 
-        <!-- Hero Section -->
+        <!-- Hero Section (Espaçamento superior reduzido) -->
         <section class="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20 border-b border-surfaceBorder/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -184,7 +155,6 @@
                     </div>
                     
                     <!-- Card Certificações -->
-                    <!-- Card Certificações -->
                     <div class="lg:col-span-5 mt-4 lg:mt-0">
                         <div class="bg-cardBg/85 backdrop-blur-md border border-surfaceBorder rounded-2xl p-5 sm:p-7 glow-tech relative shadow-xl">
                             <div class="absolute -top-3 right-4 sm:right-6 bg-techBlue text-white font-tech text-[10px] sm:text-xs font-bold px-3 py-0.5 rounded-md shadow">
@@ -217,8 +187,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- Ingresso & QR Code Section -->
+          <!-- Ingresso & QR Code Section -->
         <section id="ingresso" class="py-14 sm:py-20 relative overflow-hidden border-b border-surfaceBorder/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="bg-cardBg/85 backdrop-blur-md border border-techBlue/40 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 glow-tech grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -251,7 +220,8 @@
             </div>
         </section>
 
-        <!-- Diferenciais Section (Cisco, AWS e CREA padronizados) -->
+
+        <!-- Diferenciais Section -->
         <section id="diferenciais" class="py-14 sm:py-20 border-b border-surfaceBorder/80 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
@@ -261,49 +231,48 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                    <!-- Card Cisco + AWS -->
-                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-2xl p-6 sm:p-8 hover:border-techBlue/60 transition duration-300 flex flex-col justify-between">
-                        <div>
-                            <!-- Logos lado a lado -->
-                            <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-5 sm:mb-6">
-                                <!-- Cisco -->
-                                <div class="h-16 sm:h-20 rounded-xl bg-white border border-slate-200 p-3 flex items-center justify-center">
-                                    <img src="img/logo_cisco.png" alt="Cisco" class="w-full h-full object-contain" loading="lazy" decoding="async">
-                                </div>
-                                <!-- AWS -->
-                                <div class="h-16 sm:h-20 rounded-xl bg-white border border-slate-200 p-3 flex items-center justify-center">
-                                    <img src="img/logo_aws.png" alt="AWS Academy" class="w-full h-full object-contain" loading="lazy" decoding="async">
-                                </div>
-                            </div>
-                            <!-- Conteúdo -->
-                            <h4 class="font-tech font-bold text-lg sm:text-xl text-white mb-3">
-                                Parcerias Globais: Cisco & AWS Academy
-                            </h4>
-                            <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
-                                Cursos gratuitos e integrados para obtenção de certificações reconhecidas internacionalmente pelo mercado de tecnologia.
-                            </p>
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-2xl p-6 sm:p-8 hover:border-techBlue/60 transition duration-300">
+                        <div class="w-20 h-12 sm:w-24 sm:h-14 rounded-xl bg-white p-2 flex items-center justify-center mb-4 sm:mb-6">
+                            <img src="img/logo_cisco.png" alt="Cisco e AWS" class="max-h-full max-w-full object-contain">
                         </div>
+                        <h4 class="font-tech font-bold text-lg sm:text-xl text-white mb-3">Parcerias Globais: Cisco & AWS Academy</h4>
+                        <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
+                            Cursos gratuitos e integrados para obtenção de certificações reconhecidas internacionalmente pelo mercado de tecnologia.
+                        </p>
                     </div>
-
-                    <!-- Card CREA/SC (Dimensão e área de texto idênticas) -->
-                    <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-2xl p-6 sm:p-8 hover:border-accentEmerald/60 transition duration-300 flex flex-col justify-between">
-                        <div>
-                            <!-- Logo CREA com a mesma dimensão e altura dos quadros Cisco e AWS -->
-                            <div class="w-full h-16 sm:h-20 rounded-xl bg-white border border-slate-200 p-3 flex items-center justify-center mb-5 sm:mb-6">
-                                <img src="img/logo_crea.png" alt="Logo CREA-SC" class="w-full h-full object-contain object-center" loading="lazy" decoding="async">
-                            </div>
-                            <h4 class="font-tech font-bold text-lg sm:text-xl text-white mb-3">
-                                Registro Profissional no CREA/SC
-                            </h4>
-                            <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
-                                O curso é registrado no CREA/SC, assegurando o reconhecimento legal de suas atribuições profissionais perante o CONFEA/CREA.
-                            </p>
+                <div class="bg-cardBg/80 backdrop-blur-md border border-surfaceBorder rounded-2xl p-6 sm:p-8 hover:border-accentEmerald/60 transition duration-300">
+                        <div class="w-20 h-12 sm:w-28 sm:h-14 rounded-xl bg-white p-2 flex items-center justify-center mb-4 sm:mb-6">
+                            <img src="img/logo_crea.png" alt="Logo CREA-SC" class="max-h-full max-w-full object-contain">
                         </div>
+                        <h4 class="font-tech font-bold text-lg sm:text-xl text-white mb-3">Registro Profissional no CREA/SC</h4>
+                        <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
+                            O curso é registrado no CREA/SC, assegurando o reconhecimento legal de suas atribuições profissionais perante o CONFEA/CREA.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Parcerias Logos -->
+         <!--        <section id="parcerias" class="py-10 sm:py-14 bg-cardBg/40 backdrop-blur-sm border-b border-surfaceBorder/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-[10px] sm:text-xs font-tech tracking-widest text-slate-400 uppercase mb-6 sm:mb-8">Parcerias Tecnológicas</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 items-center justify-items-center">
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_ifc.png" alt="IFC" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_cisco.png" alt="Cisco" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_aws.png" alt="AWS" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="bg-darkBg/80 border border-surfaceBorder px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center justify-center h-14 sm:h-16 w-full max-w-[160px]">
+                        <img src="img/logo_crea.png" alt="CREA-SC" class="max-h-full max-w-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>  -->
         <!-- Informações do Curso Section -->
         <section id="curso" class="py-14 sm:py-20 border-b border-surfaceBorder/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -347,7 +316,6 @@
             </div>
         </section>
 
-        <!-- Seção FAQ (Perguntas Frequentes) -->
          <!-- Seção FAQ (Perguntas Frequentes) -->
         <section id="faq" class="py-14 sm:py-20 border-b border-surfaceBorder/80">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -424,9 +392,8 @@
                 </div>
             </div>
         </section>
-        </section>
 
-        <!-- Footer -->
+        <!-- Rodapé -->
         <footer class="bg-darkBg/90 border-t border-surfaceBorder py-10 sm:py-14 backdrop-blur-md">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
                 <div>
@@ -471,60 +438,59 @@
                 &copy; 2026 Instituto Federal Catarinense (IFC) - Campus Araquari. Todos os direitos reservados.
             </div>
         </footer>
+
     </div>
 
     <!-- Scripts da aplicação -->
     <script>
-        // Menu Mobile Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
                 });
-            });
-        }
 
-        // Acordeão do FAQ
-        const faqToggles = document.querySelectorAll('.faq-toggle');
-        faqToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const content = toggle.nextElementSibling;
-                const icon = toggle.querySelector('i');
-                
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    icon.classList.remove('rotate-180');
-                } else {
-                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
-                    document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
-                    
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    icon.classList.add('rotate-180');
-                }
-            });
-        });
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
 
-        // Gerador de QR Code
-        window.addEventListener('DOMContentLoaded', () => {
-            const qrContainer = document.getElementById("qrcode");
+            // QR Code
+            var qrContainer = document.getElementById("qrcode");
             if (qrContainer && typeof QRCode !== 'undefined') {
                 new QRCode(qrContainer, {
                     text: "https://abre.ai/estuderedes",
                     width: 120,
                     height: 120,
-                    colorDark: "#0a0f18",
+                    colorDark: "#000000",
                     colorLight: "#ffffff",
                     correctLevel: QRCode.CorrectLevel.H
                 });
             }
+
+            // Accordion FAQ
+            const faqToggles = document.querySelectorAll('.faq-toggle');
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('i');
+                    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                    if (!isOpen) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
         });
     </script>
 </body>
